@@ -29,7 +29,6 @@ test.describe('Challenge 6 - E2E Testing', async () => {
 
                 await orderPage.verifyOrderSuccess(user, ProductData);
                 await loginPage.logout();
-
             });
         }
     });
