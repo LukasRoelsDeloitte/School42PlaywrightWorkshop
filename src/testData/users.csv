@@ -1,0 +1,2 @@
+username,password,firstname,lastname,country,street,zipcode,town,email,valid
+Playwright,playwright,John,Doe,Belgium,Zegersdreef 1,2930,Brasschaat,john.doe@example.com,true
