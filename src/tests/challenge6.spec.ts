@@ -26,7 +26,6 @@ test.describe('Challenge 6 - E2E Testing', async () => {
 
                 await checkoutPage.fillDetails(user);
                 await checkoutPage.placeOrder();
-
                 await orderPage.verifyOrderSuccess(user, ProductData);
                 await loginPage.logout();
             });
