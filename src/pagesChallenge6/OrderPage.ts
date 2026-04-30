@@ -13,7 +13,7 @@ export class OrderPage extends BasePage {
     }
 
     async verifyOrderSuccess(user: User, products: Product[]) {
-        await this.page.waitForLoadState('load');
+        await this.page.waitForLoadState('domcontentloaded');
         await expect(this.page.locator('h1')).toContainText('Order received');
         for (const product of products) {
             await expect(this.pageContent).toContainText(product.name);
