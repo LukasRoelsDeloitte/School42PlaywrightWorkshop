@@ -19,7 +19,6 @@ export class BasePage {
 
     async acceptCookies() {
         await this.page.getByRole('button', {name: 'Accept All'}).click();
-        await this.page.waitForLoadState('load');
         await this.page.getByRole('button', {name: 'Consent', exact: true}).click();
     }
 
