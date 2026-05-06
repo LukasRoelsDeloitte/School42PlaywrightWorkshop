@@ -9,7 +9,7 @@ export class OrderPage extends BasePage {
 
     constructor(page: Page) {
         super(page);
-        this.pageContent = page.locator('content');
+        this.pageContent = page.locator('body');
     }
 
     async verifyOrderSuccess(user: User, products: Product[]) {

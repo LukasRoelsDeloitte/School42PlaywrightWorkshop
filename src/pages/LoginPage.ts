@@ -17,11 +17,11 @@ export class LoginPage extends BasePage {
 
     async authenticate(username: string, password: string) {
         await this.navigateToLogin();
-        await this.page.waitForLoadState('domcontentloaded');
+        await this.page.waitForLoadState('load');
         await this.usernameField.fill(username);
         await this.passwordField.fill(password);
         await this.signInButton.click();
         await this.page.waitForLoadState('domcontentloaded');
-        await expect(this.page.locator('#menu-item-2332 > a')).toHaveText(`Hello, ${username}`);
+        await expect(this.page.locator('#menu-item-2333 > a')).toHaveText(`Hello, ${username}`);
     }
 }
