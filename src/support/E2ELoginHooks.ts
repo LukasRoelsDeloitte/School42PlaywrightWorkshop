@@ -25,10 +25,6 @@ export function setupHooks() {
     ProductData = loadProductData();
 
     test.beforeEach(async ({ page }, testInfo) => {
-        if(testInfo.title === 'data correctly loaded') {
-            return;
-        }
-
         loginPage = new LoginPage(page);
         checkoutPage = new CheckoutPage(page);
         orderPage = new OrderPage(page);
