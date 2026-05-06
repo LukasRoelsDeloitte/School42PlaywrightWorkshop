@@ -35,7 +35,7 @@ test('add to cart and verify', async ({page}) => {
 
     while(!(await page.getByText('Useful ChatGPT Prompts').isVisible())) {
         await page.getByRole('link', { name: '→' }).click();
-        await page.waitForLoadState('load');
+        await page.waitForLoadState('domcontentloaded');
     }
 
     await page.getByAltText('Useful ChatGPT Prompts').click();
