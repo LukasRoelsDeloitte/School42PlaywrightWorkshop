@@ -23,7 +23,6 @@ export class BasePage {
             await this.page.getByRole('button', {name: 'Accept All'}).click();
             await this.page.getByRole('button', {name: 'Consent', exact: true}).click();
         } catch (error) {
-            await this.page.getByRole('button', {name: 'Consent', exact: true}).waitFor({timeout: 1000});
             await this.page.getByRole('button', {name: 'Consent', exact: true}).click();
         }        
     }
