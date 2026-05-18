@@ -20,9 +20,13 @@ export let cartPage: CartPage;
 export let userData: User[] = [];
 export let ProductData: Product[] = [];
 
-export function setupHooks() {
-    userData = loadUserData();
-    ProductData = loadProductData();
+export function setupHooks(user?: User) { 
+    if (userData.length === 0) {
+        userData = loadUserData();
+    }
+    if (ProductData.length === 0) {
+        ProductData = loadProductData();
+    }
 
     test.beforeEach(async ({ page }) => {
         loginPage = new LoginPage(page);
@@ -32,13 +36,12 @@ export function setupHooks() {
         productPage = new ProductPage(page);
         cartPage = new CartPage(page);
 
-        for (const user of userData) {
-            if (user.valid) {
+
+            if (user && user.valid) {
                 await loginPage.launch();
                 await loginPage.authenticate(user.username, user.password);
                 await cartPage.emptyCart();
                 await loginPage.logout();
             }
-        }
     });
 }
