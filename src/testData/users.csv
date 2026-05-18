@@ -1,3 +1,4 @@
 username,password,firstname,lastname,country,street,zipcode,town,email,valid
 lukas.roels,lroels,John,Doe,Belgium,Zegersdreef 1,2930,Brasschaat,john.doe@example.com,true
 john.doe,lroels,John,Doe,Belgium,Zegersdreef 1,2930,Brasschaat,john.doe@exqmple.com,true
+idkidk,lroels,John,Doe,Belgium,Zegersdreef 1,2930,Brasschaat,john.doe@exqmple.com,false

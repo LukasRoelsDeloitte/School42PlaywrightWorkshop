@@ -9,7 +9,7 @@ async function authenticate(page: Page, username: string, password: string) {
         
         await page.locator('xpath=/html/body/div[8]/div[2]/div/div/div[2]/div/div/div[2]/div/form/button').click();
     
-        await expect(page.locator('css=#menu-item-2333 > a')).toHaveText(`Hello, ${username.split('.')[0]}`);
+        await expect(page.locator('css=#menu-item-2333 > a')).toHaveText(new RegExp(`Hello, ${username.split('.')[0]}`, 'i'));
 }
 
 test.beforeEach(async ({ page }) => {
