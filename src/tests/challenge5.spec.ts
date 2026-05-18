@@ -20,7 +20,7 @@ test.describe('Challenge 5 - Page Object Model', () => {
         cartPage = new CartPage(page);
 
         await loginPage.launch();
-        await loginPage.authenticate('Playwright', 'playwright');
+        await loginPage.authenticate('lukas.roels', 'lroels');
         await cartPage.emptyCart();
 
     });

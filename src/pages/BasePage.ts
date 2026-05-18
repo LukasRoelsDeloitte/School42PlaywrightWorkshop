@@ -19,11 +19,14 @@ export class BasePage {
 
     async acceptCookies() {
         try {
-            await this.page.getByRole('button', {name: 'Accept All'}).waitFor({timeout: 1000});
-            await this.page.getByRole('button', {name: 'Accept All'}).click();
+            await this.page.getByRole('button', {name: 'Accept All'}).click({timeout: 1000});
             await this.page.getByRole('button', {name: 'Consent', exact: true}).click();
         } catch (error) {
-            await this.page.getByRole('button', {name: 'Consent', exact: true}).click();
+            try {
+                await this.page.getByRole('button', {name: 'Consent', exact: true}).click({timeout: 1000});
+            } catch (error) {
+                // No cookie banner found, proceed without accepting cookies
+            }
         }        
     }
 

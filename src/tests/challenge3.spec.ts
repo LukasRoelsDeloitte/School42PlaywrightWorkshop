@@ -9,11 +9,11 @@ async function authenticate(page: Page, username: string, password: string) {
         
         await page.locator('xpath=/html/body/div[8]/div[2]/div/div/div[2]/div/div/div[2]/div/form/button').click();
     
-        await expect(page.locator('css=#menu-item-2333 > a')).toHaveText(`Hello, ${username}`);
+        await expect(page.locator('css=#menu-item-2333 > a')).toHaveText(`Hello, ${username.split('.')[0]}`);
 }
 
 test.beforeEach(async ({ page }) => {
-    await authenticate(page, 'Playwright', 'playwright');
+    await authenticate(page, 'lukas.roels', 'lroels');
 
     await page.locator('xpath=html/body/nav/div[1]/div[3]/div/a').click();
 
@@ -38,7 +38,7 @@ test('add to cart and verify', async ({page}) => {
         await page.waitForLoadState('domcontentloaded');
     }
 
-    await page.getByAltText('Useful ChatGPT Prompts').click();
+    await page.getByText('Useful ChatGPT Prompts').click();
     await page.getByRole('spinbutton', {name: 'Product quantity'}).click();
     await page.getByRole('spinbutton', {name: 'Product quantity'}).fill('3');
     await page.getByRole('button', {name: '+ Add to cart'}).click();
