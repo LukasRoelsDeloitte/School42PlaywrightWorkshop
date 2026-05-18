@@ -11,10 +11,10 @@ export class ShopPage extends BasePage {
 
     async goToProduct(productName: string) {
         await this.navigateToShop();
-        while(!(await this.page.getByAltText(productName).isVisible())) {
+        while(!(await this.page.getByText(productName).isVisible())) {
             await this.nextPageArrow.click();
             await this.page.waitForLoadState('domcontentloaded');
         }
-        await this.page.getByAltText(productName).click();
+        await this.page.getByText(productName).click();
     }
 }

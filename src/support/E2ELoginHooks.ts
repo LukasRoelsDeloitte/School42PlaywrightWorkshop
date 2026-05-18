@@ -35,13 +35,12 @@ export function setupHooks(user?: User) {
         shopPage = new ShopPage(page);
         productPage = new ProductPage(page);
         cartPage = new CartPage(page);
-
-
-            if (user && user.valid) {
-                await loginPage.launch();
-                await loginPage.authenticate(user.username, user.password);
-                await cartPage.emptyCart();
-                await loginPage.logout();
-            }
+        
+        if (user && user.valid) {
+            await loginPage.launch();
+            await loginPage.authenticate(user.username, user.password);
+            await cartPage.emptyCart();
+            await loginPage.logout();
+        }
     });
 }
