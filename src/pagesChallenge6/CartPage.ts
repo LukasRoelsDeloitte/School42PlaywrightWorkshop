@@ -15,7 +15,7 @@ export class CartPage extends BasePage {
     async verifyProductInCart(productName: string, expectedQuantity: number) {
         await this.navigateToCart();
         await this.page.waitForLoadState('domcontentloaded');
-        await expect(this.page.locator('content')).toContainText(productName);
+        await expect(this.page.locator('body')).toContainText(productName);
         await expect(
             this.page.getByRole('cell', {name: `${productName} quantity`}).getByLabel('Product quantity')
         ).toHaveValue(expectedQuantity.toString());

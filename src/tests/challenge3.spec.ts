@@ -35,7 +35,7 @@ test('add to cart and verify', async ({page}) => {
 
     while(!(await page.getByText('Useful ChatGPT Prompts').isVisible())) {
         await page.getByRole('link', { name: '→' }).click();
-        await page.waitForLoadState('load');
+        await page.waitForLoadState('domcontentloaded');
     }
 
     await page.getByAltText('Useful ChatGPT Prompts').click();
@@ -45,6 +45,6 @@ test('add to cart and verify', async ({page}) => {
 
 
     await page.locator('xpath=/html/body/nav/div[1]/div[3]/div/a').click();
-    await expect(page.locator('content')).toContainText('Useful ChatGPT Prompts');
+    await expect(page.locator('body')).toContainText('Useful ChatGPT Prompts');
     await expect(page.getByRole('cell', {name: 'Useful ChatGPT Prompts'}).getByLabel('Product quantity')).toHaveValue('3');
 });

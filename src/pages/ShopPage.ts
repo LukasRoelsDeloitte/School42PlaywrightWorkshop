@@ -13,7 +13,7 @@ export class ShopPage extends BasePage {
         await this.navigateToShop();
         while(!(await this.page.getByAltText(productName).isVisible())) {
             await this.nextPageArrow.click();
-            await this.page.waitForLoadState('load');
+            await this.page.waitForLoadState('domcontentloaded');
         }
         await this.page.getByAltText(productName).click();
     }
